@@ -22,7 +22,6 @@
       <main class="buy-container">
         <h1>خرید گیفت‌کارت اپل</h1>
         <p class="muted">مبلغ مورد نظر خود را انتخاب کنید</p>
-
         <form id="giftForm" class="gift-form">
           <div class="amount-options">
             <label><input type="radio" name="amount" value="15" /> €15</label>
@@ -46,6 +45,15 @@
           <textarea id="message" name="message" rows="3" placeholder="متن پیام شما"></textarea>
 
           <button type="submit" class="btn-primary">ادامه خرید</button>
+          <div class="exchange-widget">
+            <tgju
+              type="ticker-single"
+              items="137205"
+              columns="dot,diff,low,high,time"
+              token="webservice"
+            ></tgju>
+            <script src="https://api.tgju.org/v1/widget/v2" defer></script>
+          </div>
         </form>
       </main>
     </div>
