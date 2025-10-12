@@ -47,12 +47,18 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("https://atamax-backend.onrender.com/api/send-giftcard", {
+    const response = await fetch("https://atamax-backend.onrender.com/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, amount, message })
+      body: JSON.stringify({ name, email, amount, message }),
     });
-
+    const contentType = response.headers.get("content-type");
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Response is not JSON");
+    }
     const data = await response.json();
 
     if (response.ok) {

@@ -1,5 +1,9 @@
 {
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
