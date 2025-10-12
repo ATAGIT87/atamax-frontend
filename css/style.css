@@ -69,3 +69,75 @@ body{
   .hero h1{font-size:1.6rem}
   .hero p{font-size:1rem}
 }
+.amount-picker{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+.amount-btn{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+}
+.amount-btn.selected{
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
+.amount-btn.other{
+  border-style:dashed;
+}
+.buy-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+.buy-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gift-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gift-form input,
+.gift-form select,
+.gift-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 15px;
+  text-decoration: none;
+  color: #0071e3;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #0071e3;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #005bb5;
+}
