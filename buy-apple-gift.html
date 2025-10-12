@@ -1,103 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خرید گیفت‌کارت اپل</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/giftCard.css" />
- 
-</head>
-<body>
-  <header class="topbar">
-    <a href="index.html" class="back-link">← بازگشت به خدمات</a>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خرید گیفت‌کارت اپل</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/giftCard.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="index.html" class="back-link">← بازگشت به خدمات</a>
+    </header>
 
-  <div class="buy-layout">
-    <!-- Left side image -->
-    <div class="buy-image">
-      <img src="images/giftcard.jpg" alt="Apple Gift Card">
+    <div class="buy-layout">
+      <!-- Left side image -->
+      <div class="buy-image">
+        <img src="images/giftcard.jpg" alt="Apple Gift Card" />
+      </div>
+
+      <!-- Right side form -->
+      <main class="buy-container">
+        <h1>خرید گیفت‌کارت اپل</h1>
+        <p class="muted">مبلغ مورد نظر خود را انتخاب کنید</p>
+
+        <form id="giftForm" class="gift-form">
+          <div class="amount-options">
+            <label><input type="radio" name="amount" value="15" /> €15</label>
+            <label><input type="radio" name="amount" value="25" /> €25</label>
+            <label><input type="radio" name="amount" value="50" /> €50</label>
+            <label><input type="radio" name="amount" value="100" /> €100</label>
+            <label
+              ><input type="radio" name="amount" value="custom" id="customAmountRadio" /> مبلغ
+              اختیاری</label
+            >
+            <input type="number" id="customAmountInput" placeholder="مبلغ دلخواه (€)" min="1" />
+          </div>
+
+          <label for="name">نام شما</label>
+          <input type="text" id="name" name="name" required placeholder="نام کامل" />
+
+          <label for="email">ایمیل شما</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+          <label for="message">پیام (اختیاری)</label>
+          <textarea id="message" name="message" rows="3" placeholder="متن پیام شما"></textarea>
+
+          <button type="submit" class="btn-primary">ادامه خرید</button>
+        </form>
+      </main>
     </div>
 
-    <!-- Right side form -->
-    <main class="buy-container">
-      <h1>خرید گیفت‌کارت اپل</h1>
-      <p class="muted">مبلغ مورد نظر خود را انتخاب کنید</p>
-
-      <form id="giftForm" class="gift-form">
-        <div class="amount-options">
-          <label><input type="radio" name="amount" value="15"> €15</label>
-          <label><input type="radio" name="amount" value="25"> €25</label>
-          <label><input type="radio" name="amount" value="50"> €50</label>
-          <label><input type="radio" name="amount" value="100"> €100</label>
-          <label><input type="radio" name="amount" value="custom" id="customAmountRadio"> مبلغ اختیاری</label>
-          <input type="number" id="customAmountInput" placeholder="مبلغ دلخواه (€)" min="1">
-        </div>
-
-        <label for="name">نام شما</label>
-        <input type="text" id="name" name="name" required placeholder="نام کامل">
-
-        <label for="email">ایمیل شما</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com">
-
-        <label for="message">پیام (اختیاری)</label>
-        <textarea id="message" name="message" rows="3" placeholder="متن پیام شما"></textarea>
-
-        <button type="submit" class="btn-primary">ادامه خرید</button>
-      </form>
-    </main>
-  </div>
-
-  <script>
-    // --- Show/hide custom amount input ---
-    const customRadio = document.getElementById('customAmountRadio');
-    const customInput = document.getElementById('customAmountInput');
-    const radios = document.querySelectorAll('input[name="amount"]');
-
-    radios.forEach(radio => {
-      radio.addEventListener('change', () => {
-        if (customRadio.checked) {
-          customInput.style.display = 'block';
-          customInput.focus();
-        } else {
-          customInput.style.display = 'none';
-          customInput.value = '';
-        }
-      });
-    });
-
-    // --- Handle form submission ---
-    document.getElementById('giftForm').addEventListener('submit', e => {
-      e.preventDefault();
-
-      let amount;
-      const selected = document.querySelector('input[name="amount"]:checked');
-
-      if (!selected) {
-        alert('لطفاً مبلغ را انتخاب کنید.');
-        return;
-      }
-
-      if (selected.value === 'custom') {
-        amount = customInput.value.trim();
-        if (!amount || isNaN(amount) || amount <= 0) {
-          alert('لطفاً مبلغ دلخواه معتبر وارد کنید.');
-          return;
-        }
-      } else {
-        amount = selected.value;
-      }
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-
-      if (!name || !email) {
-        alert('لطفاً تمام فیلدهای الزامی را پر کنید.');
-        return;
-      }
-
-      alert(`خرید شما ثبت شد:\nگیفت‌کارت اپل ${amount} یورویی\n${name}\n${email}`);
-    });
-  </script>
-</body>
+   <script src="js/giftcard.js"></script>
+  </body>
 </html>

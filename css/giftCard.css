@@ -1,129 +1,129 @@
 body {
-      font-family: sans-serif;
-      margin: 0;
-      background-color: #f5f5f7;
-      color: #1d1d1f;
-      direction: rtl;
-    }
-
-    header.topbar {
-      padding: 16px 32px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .back-link {
-      text-decoration: none;
-      color: #0071e3;
-      font-size: 15px;
-    }
-.buy-layout {
-  display: flex;
-  justify-content: center;     /* کل مجموعه وسط صفحه قرار بگیره */
-  align-items: center;         /* عمودی وسط قرار بگیره */
-  gap: 60px;                   /* فاصله بین عکس و فرم */
-  padding: 60px 5%;
-  flex-direction: row-reverse; /* عکس سمت چپ، فرم سمت راست */
-  max-width: 1100px;           /* عرض کلی بخش محدود و مرتب */
-  margin: 0 auto;              /* وسط‌چینی کل بلوک */
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  direction: rtl;
 }
 
+header.topbar {
+  padding: 16px 32px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
 
-    /* Left side: image */
-    .buy-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.back-link {
+  text-decoration: none;
+  color: #0071e3;
+  font-size: 15px;
+}
+.buy-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 5%;
+  flex-direction: row-reverse;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    .buy-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+/* Left side: image */
+.buy-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    /* Right side: form */
-    .buy-container {
-      flex: 1;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      padding: 32px;
-    }
+.buy-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
+/* Right side: form */
+.buy-container {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+}
 
-    .muted {
-      color: #6e6e73;
-      margin-bottom: 24px;
-    }
+h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
 
-    .gift-form label {
-      display: block;
-      margin-top: 12px;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
+.muted {
+  color: #6e6e73;
+  margin-bottom: 24px;
+}
 
-    .gift-form input, .gift-form select, .gift-form textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
+.gift-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
 
-    .btn-primary {
-      margin-top: 24px;
-      background: #0071e3;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+.gift-form input,
+.gift-form select,
+.gift-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
-    .btn-primary:hover {
-      background: #0077ed;
-    }
+.btn-primary {
+  margin-top: 24px;
+  background: #0071e3;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    .amount-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1px;
-      align-items: center;
-    }
+.btn-primary:hover {
+  background: #0077ed;
+}
 
- 
-    .amount-options input[type="radio"] {
-      margin-left: 6px;
-    }
+.amount-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  align-items: center;
+}
 
-    #customAmountInput {
-      display: none;
-      margin-top: 8px;
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      width: 150px;
-      text-align: center;
-    }
+.amount-options input[type="radio"] {
+  margin-left: 6px;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .buy-layout {
-        flex-direction: column;
-        align-items: center;
-      }
+#customAmountInput {
+  display: none;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+}
 
-      .buy-container {
-        width: 100%;
-      }
-    }
+/* Responsive */
+@media (max-width: 768px) {
+  .buy-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buy-container {
+    width: 100%;
+  }
+}
