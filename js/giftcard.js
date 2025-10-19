@@ -3,6 +3,8 @@ const customRadio = document.getElementById("customAmountRadio");
 const customInput = document.getElementById("customAmountInput");
 const radios = document.querySelectorAll('input[name="amount"]');
 
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxoj0U5O3hyvu3oWd1I70EBYRCBkcTWI1cy-1G4sZSFAZCmnGwQwq6l3_OUEx8l9MdX/exec";
+
 radios.forEach((radio) => {
   radio.addEventListener("change", () => {
     if (customRadio.checked) {
@@ -47,7 +49,7 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("https://atamaxx-775123415439.europe-west3.run.app/send-email", {
+    const response = await fetch(SCRIPT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, amount, message }),
@@ -61,12 +63,13 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
     }
     const data = await response.json();
 
-    if (response.ok) {
-      alert("✅ ایمیل با موفقیت ارسال شد!");
+    
+    if (data.success) {
+      alert("✅ درخواست شما با موفقیت ثبت شد!");
       document.getElementById("giftForm").reset();
       customInput.style.display = "none";
     } else {
-      alert("❌ خطا در ارسال ایمیل: " + (data.error || "Unknown error"));
+      alert("❌  خطا در پردازش اطلاعات: " + (data.error || "Unknown error"));
     }
   } catch (error) {
     console.error(error);
