@@ -47,7 +47,7 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("https://atamax-backend.onrender.com/send-email", {
+    const response = await fetch("https://atamaxx-775123415439.europe-west3.run.app/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, amount, message }),
