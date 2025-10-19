@@ -3,7 +3,7 @@ const customRadio = document.getElementById("customAmountRadio");
 const customInput = document.getElementById("customAmountInput");
 const radios = document.querySelectorAll('input[name="amount"]');
 
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxg7G1UZp2Zwc9QtGctxdbhM8WbybQsrqCG8ZIuHfw_zF8KsaxLiT6Fj-YfyaoPy4os/exec";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxiudVxrnrxO_YFLAXD0syiNHZP0u3g4ytxiuTdIFDS4P0R38lRMJctmIT13sjEPj24/exec";
 
 
 radios.forEach((radio) => {
@@ -50,30 +50,29 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch(SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, amount, message }),
-    });
-    const contentType = response.headers.get("content-type");
-    if (!response.ok) {
-      throw new Error(`Server error: ${response.status}`);
-    }
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Response is not JSON");
-    }
-    const data = await response.json();
+  // ✅ داده‌ها را به صورت FormData بفرست تا مرورگر preflight نفرسته
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("amount", amount);
+  formData.append("message", message);
 
-    
-    if (data.success) {
-      alert("✅ درخواست شما با موفقیت ثبت شد!");
-      document.getElementById("giftForm").reset();
-      customInput.style.display = "none";
-    } else {
-      alert("❌  خطا در پردازش اطلاعات: " + (data.error || "Unknown error"));
-    }
-  } catch (error) {
-    console.error(error);
-    alert("⚠️ مشکلی در ارتباط با سرور پیش آمد.");
+  const response = await fetch(SCRIPT_URL, {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    alert("✅ درخواست شما با موفقیت ثبت شد!");
+    document.getElementById("giftForm").reset();
+    customInput.style.display = "none";
+  } else {
+    alert("❌ خطا در پردازش اطلاعات: " + (data.error || "Unknown error"));
   }
+} catch (error) {
+  console.error(error);
+  alert("⚠️ مشکلی در ارتباط با سرور پیش آمد.");
+}
 });
