@@ -50,17 +50,16 @@ document.getElementById("giftForm").addEventListener("submit", async (e) => {
   }
 
   try {
-  // ✅ داده‌ها را به صورت FormData بفرست تا مرورگر preflight نفرسته
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("email", email);
-  formData.append("amount", amount);
-  formData.append("message", message);
-
-  const response = await fetch(SCRIPT_URL, {
-    method: "POST",
-    body: formData,
-  });
+ const response = await fetch(SCRIPT_URL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name,
+    email,
+    amount,
+    message,
+  }),
+});
 
   const data = await response.json();
 
