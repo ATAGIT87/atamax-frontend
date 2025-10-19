@@ -3,7 +3,8 @@ const customRadio = document.getElementById("customAmountRadio");
 const customInput = document.getElementById("customAmountInput");
 const radios = document.querySelectorAll('input[name="amount"]');
 
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxoj0U5O3hyvu3oWd1I70EBYRCBkcTWI1cy-1G4sZSFAZCmnGwQwq6l3_OUEx8l9MdX/exec";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbx-dCfK0aPmQirfZW_izZl4jXMnXws4YzURk5oXcg4/dev";
+
 
 radios.forEach((radio) => {
   radio.addEventListener("change", () => {
